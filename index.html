@@ -23,6 +23,20 @@
           <option value="en">EN</option>
           <option value="ar">AR</option>
         </select>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/ahmed-rashdan1" target="_blank" title="LinkedIn">
+            <img src="icons/linkedin.svg" alt="LinkedIn">
+          </a>
+          <a href="https://github.com/ahmed-rashdan" target="_blank" title="GitHub">
+            <img src="icons/github.svg" alt="GitHub">
+          </a>
+          <a href="mailto:ahmeddino482@gmail.com" title="Email">
+            <img src="icons/email.svg" alt="Email">
+          </a>
+          <a href="tel:01283359534" title="Phone">
+            <img src="icons/phone.svg" alt="Phone">
+          </a>
+        </div>
       </div>
     </nav>
   </header>
@@ -41,12 +55,10 @@
     <h2 data-i18n="aboutTitle">About Me</h2>
     <div class="about-content">
       <div class="about-image">
-        <img src="[path/to/headshot.jpg]" alt="Ahmed Rashdan">
+        <img src="images/headshot.jpg" alt="Ahmed Rashdan">
       </div>
       <div class="about-text">
-        <p data-i18n="aboutBio">
-          I'm Ahmed Rashdan, a professional Data Scientist from Egypt specializing in data analysis and AI in space and satellite technology. My journey in tech began with my love for video games and curiosity about digital systems, leading me to build a strong foundation in data science and AI. I focus on integrating data science with space tech, analyzing orbital systems, and working with remote sensing data.
-        </p>
+        <p data-i18n="aboutBio">I'm Ahmed Rashdan, a professional Data Scientist from Egypt specializing in data analysis and AI in space and satellite technology. My journey in tech began with my love for video games and curiosity about digital systems, leading me to build a strong foundation in data science and AI. I focus on integrating data science with space tech, analyzing orbital systems, and working with remote sensing data.</p>
         <h3 data-i18n="skillsTitle">Skills</h3>
         <ul class="skills-list">
           <li>AI</li>
@@ -64,18 +76,18 @@
     <h2 data-i18n="projectsTitle">Projects</h2>
     <div class="projects-grid">
       <div class="project-card">
-        <img src="[path/to/project1.jpg]" alt="Project 1">
-        <h3>AI Data Analyzer</h3>
-        <p>A Python-based AI project for analyzing and visualizing large datasets efficiently.</p>
+        <img src="images/project1.jpg" alt="Project 1">
+        <h3 data-i18n="project1Title">AI Data Analyzer</h3>
+        <p data-i18n="project1Desc">A Python-based AI project for analyzing and visualizing large datasets efficiently.</p>
         <div class="project-links">
           <a href="#" target="_blank" data-i18n="viewLive">View Live</a>
           <a href="https://github.com/ahmed-rashdan" target="_blank" data-i18n="githubRepo">GitHub Repo</a>
         </div>
       </div>
       <div class="project-card">
-        <img src="[path/to/project2.jpg]" alt="Project 2">
-        <h3>Space Tech Dashboard</h3>
-        <p>A web dashboard visualizing satellite and space data with interactive charts.</p>
+        <img src="images/project2.jpg" alt="Project 2">
+        <h3 data-i18n="project2Title">Space Tech Dashboard</h3>
+        <p data-i18n="project2Desc">A web dashboard visualizing satellite and space data with interactive charts.</p>
         <div class="project-links">
           <a href="#" target="_blank" data-i18n="viewLive">View Live</a>
           <a href="https://github.com/ahmed-rashdan" target="_blank" data-i18n="githubRepo">GitHub Repo</a>
@@ -88,17 +100,12 @@
   <section id="contact" class="contact">
     <h2 data-i18n="contactTitle">Contact Me</h2>
     <form class="contact-form">
-      <input type="text" name="name" placeholder="Name" value="Ahmed Rashdan" required>
-      <input type="email" name="email" placeholder="Email" value="ahmeddino482@gmail.com" required>
-      <input type="text" name="subject" placeholder="Subject" required>
-      <textarea name="message" rows="5" placeholder="Message" required></textarea>
+      <input type="text" name="name" data-i18n-placeholder="namePlaceholder" value="Ahmed Rashdan" required>
+      <input type="email" name="email" data-i18n-placeholder="emailPlaceholder" value="ahmeddino482@gmail.com" required>
+      <input type="text" name="subject" data-i18n-placeholder="subjectPlaceholder" required>
+      <textarea name="message" rows="5" data-i18n-placeholder="messagePlaceholder" required></textarea>
       <button type="submit" data-i18n="sendMessage">Send</button>
     </form>
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/ahmed-rashdan1" target="_blank">LinkedIn</a>
-      <a href="https://github.com/ahmed-rashdan" target="_blank">GitHub</a>
-      <a href="#" target="_blank">Twitter</a>
-    </div>
   </section>
 
   <!-- Footer -->
