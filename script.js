@@ -1,145 +1,67 @@
-// =========================
-// Dark / Light Mode Toggle
-// INITIAL LOAD SETTINGS
-// =========================
-const themeToggle = document.getElementById("themeToggle");
+// ====== Dark/Light Mode Toggle ======
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
 
-themeToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-  document.body.classList.toggle("light");
-// Dark theme default
-const savedTheme = localStorage.getItem("theme") || "dark";
-document.body.classList.add(savedTheme);
-
-  localStorage.setItem(
-    "theme",
-    document.body.classList.contains("dark") ? "dark" : "light"
-  );
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
+  localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
 });
-// Saved language
-const savedLang = localStorage.getItem("language") || "en";
-document.documentElement.setAttribute("dir", savedLang === "ar" ? "rtl" : "ltr");
 
-// Load saved theme
-if (localStorage.getItem("theme") === "dark") {
-  document.body.classList.add("dark");
-} else {
-  document.body.classList.add("light");
-}
-// =========================
-// DARK / LIGHT MODE
-// =========================
-const themeToggle = document.getElementById("themeToggle");
-
-if (themeToggle) {
-  themeToggle.addEventListener("click", () => {
-    const isDark = document.body.classList.contains("dark");
-    document.body.classList.remove("dark", "light");
-    document.body.classList.add(isDark ? "light" : "dark");
-    localStorage.setItem("theme", isDark ? "light" : "dark");
-  });
+// Load theme from localStorage
+if (localStorage.getItem('theme') === 'dark') {
+  body.classList.add('dark-mode');
 }
 
-// =========================
-// Language Toggle
-// LANGUAGE TOGGLE
-// =========================
-const langEn = document.getElementById("langEn");
-const langAr = document.getElementById("langAr");
-@@ -31,68 +34,61 @@ const aboutText = document.getElementById("aboutText");
-const aboutContent = {
-  en: `
-    <p>Hello, I’m Ahmed Rashdan — a Data Scientist specializing in space technology, data analysis, and artificial intelligence.</p>
-    <p>My passion for technology started early through curiosity about how complex systems work, from video games to satellites orbiting Earth. That curiosity grew into a strong foundation in programming, data science, and analytical thinking.</p>
-    <p>I focus on transforming complex data into clear, actionable insights, with a particular interest in space-related applications such as satellite systems, orbital analysis, and space-tech analytics.</p>
-    <p>Beyond technical skills, I understand the business side of space technology and how data-driven decisions can optimize performance, reduce costs, and support innovation.</p>
-    <p>My passion for technology started early through curiosity about how complex systems work, from video games to satellites orbiting Earth.</p>
-    <p>I focus on transforming complex data into clear, actionable insights, especially in satellite systems and orbital analytics.</p>
-    <p>I combine technical precision with business understanding to build impactful data-driven solutions.</p>
-  `,
-  ar: `
-    <p>مرحبًا، أنا أحمد رشدان — عالم بيانات متخصص في تقنيات الفضاء، تحليل البيانات، والذكاء الاصطناعي.</p>
-    <p>بدأ شغفي بالتكنولوجيا في سن مبكرة من خلال الفضول حول كيفية عمل الأنظمة المعقدة، من ألعاب الفيديو إلى الأقمار الصناعية التي تدور حول الأرض. هذا الفضول تطور ليصبح أساسًا قويًا في البرمجة وعلوم البيانات.</p>
-    <p>أركز على تحويل البيانات المعقدة إلى رؤى واضحة وقابلة للتنفيذ، مع اهتمام خاص بتطبيقات الفضاء مثل أنظمة الأقمار الصناعية والتحليل المداري.</p>
-    <p>إلى جانب الجانب التقني، أمتلك فهمًا جيدًا للجانب التجاري لتقنيات الفضاء وكيف يمكن للقرارات المبنية على البيانات تحسين الأداء ودعم الابتكار.</p>
-    <p>مرحبًا، أنا أحمد رشدان — عالم بيانات متخصص في تقنيات الفضاء وتحليل البيانات والذكاء الاصطناعي.</p>
-    <p>بدأ شغفي بالتكنولوجيا من الفضول حول الأنظمة المعقدة، من ألعاب الفيديو إلى الأقمار الصناعية.</p>
-    <p>أركز على تحويل البيانات المعقدة إلى رؤى واضحة خاصة في أنظمة الأقمار الصناعية والتحليل المداري.</p>
-    <p>أجمع بين الدقة التقنية والفهم التجاري لبناء حلول قائمة على البيانات ذات تأثير حقيقي.</p>
-  `
+// ====== Language Toggle (EN/AR) ======
+const langToggle = document.getElementById('lang-toggle');
+const elements = document.querySelectorAll('[data-i18n]');
+
+const translations = {
+  en: {
+    home: "Home",
+    about: "About",
+    projects: "Projects",
+    contact: "Contact",
+    heroTitle: "Hi, I'm Ahmed Rashdan",
+    heroSubtitle: "Data Scientist & Space Technology Enthusiast",
+    viewProjects: "View Projects",
+    aboutTitle: "About Me",
+    aboutBio: "I'm Ahmed Rashdan, a professional Data Scientist from Egypt specializing in data analysis and AI in space and satellite technology. My journey in tech began with my love for video games and curiosity about digital systems, leading me to build a strong foundation in data science and AI. I focus on integrating data science with space tech, analyzing orbital systems, and working with remote sensing data.",
+    skillsTitle: "Skills",
+    projectsTitle: "Projects",
+    viewLive: "View Live",
+    githubRepo: "GitHub Repo",
+    contactTitle: "Contact Me",
+    sendMessage: "Send",
+    backToTop: "Back to Top"
+  },
+  ar: {
+    home: "الرئيسية",
+    about: "من أنا",
+    projects: "المشاريع",
+    contact: "تواصل معي",
+    heroTitle: "مرحبًا، أنا أحمد رشدان",
+    heroSubtitle: "عالم بيانات متخصص في تقنيات الفضاء",
+    viewProjects: "مشاهدة المشاريع",
+    aboutTitle: "من أنا",
+    aboutBio: "مرحبًا، أنا أحمد رشدان، عالم بيانات محترف من مصر، متخصص في تحليل البيانات والذكاء الاصطناعي في مجال تقنيات الفضاء والأقمار الصناعية. بدأت رحلتي في مجال التكنولوجيا في سن مبكرة من خلال حبي لألعاب الفيديو وفضولي لفهم كيفية عمل الأنظمة الرقمية، مما دفعني لتعلّم البرمجة مبكرًا وبناء أساس قوي في علوم البيانات والذكاء الاصطناعي. أركز على دمج علوم البيانات مع تكنولوجيا الفضاء، وتحليل الأنظمة المدارية، والعمل مع بيانات الاستشعار عن بُعد.",
+    skillsTitle: "المهارات",
+    projectsTitle: "المشاريع",
+    viewLive: "عرض مباشر",
+    githubRepo: "مستودع GitHub",
+    contactTitle: "تواصل معي",
+    sendMessage: "إرسال",
+    backToTop: "العودة للأعلى"
+  }
 };
 
-function setLanguage(lang) {
-  if (lang === "en") {
-    document.documentElement.setAttribute("dir", "ltr");
-    aboutText.innerHTML = aboutContent.en;
-    langEn.classList.add("active");
-    langAr.classList.remove("active");
-  } else {
-    document.documentElement.setAttribute("dir", "rtl");
-    aboutText.innerHTML = aboutContent.ar;
-    langAr.classList.add("active");
-    langEn.classList.remove("active");
-  if (!aboutText) return;
-  document.documentElement.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
-  aboutText.innerHTML = aboutContent[lang];
-  if (langEn && langAr) {
-    langEn.classList.toggle("active", lang === "en");
-    langAr.classList.toggle("active", lang === "ar");
-  }
-  localStorage.setItem("language", lang);
-}
-
-// Language button events
-langEn.addEventListener("click", () => setLanguage("en"));
-langAr.addEventListener("click", () => setLanguage("ar"));
-
-// Default language
-setLanguage("en");
-// Apply saved language
-setLanguage(savedLang);
-
-// Button events
-if (langEn) langEn.addEventListener("click", () => setLanguage("en"));
-if (langAr) langAr.addEventListener("click", () => setLanguage("ar"));
-
-// =========================
-// Scroll Reveal Animation
-// SCROLL REVEAL
-// =========================
-const reveals = document.querySelectorAll(".reveal");
-
-window.addEventListener("scroll", function () {
-function revealOnScroll() {
-  const windowH = window.innerHeight;
-  reveals.forEach((el) => {
-    const top = el.getBoundingClientRect().top;
-    const windowH = window.innerHeight;
-
-    if (top < windowH - 50) {
-      el.classList.add("active");
-    }
-    if (top < windowH - 50) el.classList.add("active");
+langToggle.addEventListener('change', (e) => {
+  const lang = e.target.value;
+  elements.forEach(el => {
+    const key = el.dataset.i18n;
+    el.textContent = translations[lang][key];
   });
-});
-}
 
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll(); // Run on load
-
-// =========================
-// Hero Parallax Effect
-// HERO PARALLAX
-// =========================
-window.addEventListener("mousemove", (e) => {
-  const layers = document.querySelectorAll(".parallax-layer");
-
-  layers.forEach((layer, index) => {
-    const speed = (index + 1) * 0.02;
-    const x = (window.innerWidth - e.pageX * speed) / 100;
-    const y = (window.innerHeight - e.pageY * speed) / 100;
-
-    layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
-    layer.style.transform = `translate(${x}px, ${y}px)`;
-  });
+  // Set text direction
+  document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
 });
