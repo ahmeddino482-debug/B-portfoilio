@@ -3,137 +3,173 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ahmed Rashdan Portfolio</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
-<body class="light">
 
-<!-- Header -->
+<title>Ahmed Rashdan | Data Scientist & Space Systems Analyst</title>
+<meta name="description" content="Ahmed Rashdan - Data Scientist specializing in AI, Space Technology, Satellite Systems, and Automation.">
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+crossorigin="anonymous" 
+referrerpolicy="no-referrer" />
+</head>
+
+<body class="dark">
+
+<!-- ================= HEADER ================= -->
 <header>
   <div class="container nav">
     <div class="logo"><strong>Ahmed Rashdan</strong></div>
-    <div class="links">
+
+    <nav class="links">
       <a href="#hero">Home</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
-    </div>
+    </nav>
+
     <div class="controls">
-      <button id="themeToggle">Toggle Theme</button>
+      <button id="themeToggle" aria-label="Toggle Theme">🌙</button>
       <button id="langEn">EN</button>
       <button id="langAr">AR</button>
     </div>
   </div>
 </header>
 
-<!-- Hero -->
+<!-- ================= HERO ================= -->
 <section class="hero" id="hero">
+  <div class="stars"></div>
   <div class="parallax-layer layer1"></div>
   <div class="parallax-layer layer2"></div>
   <div class="parallax-layer layer3"></div>
   <div class="hero-overlay"></div>
-  <h1 class="reveal">Ahmed Rashdan</h1>
-  <p class="subtitle reveal">Professional Data Scientist | Space & AI Enthusiast</p>
-  <a href="#projects" class="btn reveal">View Projects</a>
+
+  <h1 class="reveal glow">Ahmed Rashdan</h1>
+  <p class="subtitle reveal">
+    Data Scientist | AI • Orbital Analytics • Space Systems
+  </p>
+
+  <div class="hero-buttons reveal">
+    <a href="#projects" class="btn">Explore Projects</a>
+    <a href="#about" class="btn-outline">Learn More</a>
+  </div>
 </section>
 
-<!-- About -->
+<!-- ================= ABOUT ================= -->
 <section class="section" id="about">
   <div class="about-overlay"></div>
+
   <div class="about-header reveal">
     <h2>About Me</h2>
   </div>
+
   <div class="about-content reveal" id="aboutText">
-    <!-- JS will populate EN/AR content -->
+    <!-- Content injected by script.js -->
   </div>
 </section>
 
-<!-- Skills -->
+<!-- ================= SKILLS ================= -->
 <section class="section" id="skills">
   <h2 class="about-header reveal">Skills</h2>
+
   <div class="skills-grid reveal">
+
     <div class="skill-card">
       <i class="fas fa-robot"></i>
-      <h3>AI</h3>
-      <div class="skill-bar"><div class="skill-level" style="width:90%"></div></div>
+      <h3>Artificial Intelligence</h3>
+      <div class="skill-bar">
+        <div class="skill-level" style="width:90%"></div>
+      </div>
     </div>
+
     <div class="skill-card">
       <i class="fas fa-network-wired"></i>
       <h3>Automation</h3>
-      <div class="skill-bar"><div class="skill-level" style="width:85%"></div></div>
+      <div class="skill-bar">
+        <div class="skill-level" style="width:85%"></div>
+      </div>
     </div>
+
     <div class="skill-card">
       <i class="fas fa-code"></i>
       <h3>Web Development</h3>
-      <div class="skill-bar"><div class="skill-level" style="width:80%"></div></div>
+      <div class="skill-bar">
+        <div class="skill-level" style="width:80%"></div>
+      </div>
     </div>
+
     <div class="skill-card">
-      <i class="fas fa-space-shuttle"></i>
-      <h3>Space Tech</h3>
-      <div class="skill-bar"><div class="skill-level" style="width:95%"></div></div>
+      <i class="fas fa-satellite"></i>
+      <h3>Space Technology</h3>
+      <div class="skill-bar">
+        <div class="skill-level" style="width:95%"></div>
+      </div>
     </div>
+
   </div>
 </section>
 
-<!-- Projects -->
+<!-- ================= PROJECTS ================= -->
 <section class="section" id="projects">
   <h2 class="about-header reveal">Projects</h2>
+
   <div class="project-grid reveal">
+
     <div class="card">
-      <img src="path/to/image.jpg" alt="Project" style="width:100%; border-radius:10px;">
-      <h3>Project 1</h3>
-      <p>Brief description of Project 1.</p>
+      <img src="project1.jpg" alt="Space Analytics Project">
+      <h3>Satellite Orbit Analysis</h3>
+      <p>Orbital mechanics simulation using Python and Lambert’s problem.</p>
       <div class="card-links">
         <a href="#">View Live</a>
         <a href="#">GitHub Repo</a>
       </div>
     </div>
+
     <div class="card">
-      <img src="path/to/image.jpg" alt="Project" style="width:100%; border-radius:10px;">
-      <h3>Project 2</h3>
-      <p>Brief description of Project 2.</p>
+      <img src="project2.jpg" alt="AI Automation Project">
+      <h3>AI Automation System</h3>
+      <p>Automation system powered by machine learning and data pipelines.</p>
       <div class="card-links">
         <a href="#">View Live</a>
         <a href="#">GitHub Repo</a>
       </div>
     </div>
-    <!-- Add more projects as needed -->
+
   </div>
 </section>
 
-<!-- Contact -->
+<!-- ================= CONTACT ================= -->
 <section class="section" id="contact">
   <h2 class="about-header reveal">Contact</h2>
+
   <div class="contact-wrapper reveal">
-    <form class="contact-form">
-      <input type="text" placeholder="Name">
-      <input type="email" placeholder="Email">
-      <input type="text" placeholder="Subject">
-      <textarea placeholder="Message"></textarea>
-      <button type="submit" class="btn">Send</button>
-    </form>
+
     <div class="contact-icons">
       <a href="https://www.linkedin.com/in/ahmed-rashdan1" target="_blank">
         <i class="fab fa-linkedin"></i>
         <span class="tooltip">LinkedIn</span>
       </a>
-      <a href="mailto:ahmeddino482@gmail.com" target="_blank">
+
+      <a href="mailto:ahmeddino482@gmail.com">
         <i class="fas fa-envelope"></i>
         <span class="tooltip">Gmail</span>
       </a>
+
       <a href="tel:01283359534">
         <i class="fas fa-phone"></i>
         <span class="tooltip">Phone</span>
       </a>
     </div>
+
   </div>
 </section>
 
-<!-- Footer -->
+<!-- ================= FOOTER ================= -->
 <footer>
-  &copy; 2026 Ahmed Rashdan. All rights reserved.
+  © 2026 Ahmed Rashdan — Data Scientist | Space Technology Specialist
 </footer>
 
 <script src="script.js"></script>
