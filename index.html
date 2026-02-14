@@ -1,98 +1,141 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ahmed Rashdan | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome for Social Icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmed Rashdan Portfolio</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
-<body>
-  <!-- Header / Hero Section -->
-  <header class="hero">
-    <div class="container">
-      <h1 id="hero-heading">Ahmed Rashdan</h1>
-      <p id="hero-tagline">Professional Data Scientist | AI & Web Development Enthusiast</p>
-      <a href="#projects" class="cta-btn" id="hero-cta">View Projects</a>
-      <div class="toggles">
-        <button id="theme-toggle">🌙</button>
-        <select id="language-toggle">
-          <option value="en">English</option>
-          <option value="ar">العربية</option>
-        </select>
+<body class="light">
+
+<!-- Header -->
+<header>
+  <div class="container nav">
+    <div class="logo"><strong>Ahmed Rashdan</strong></div>
+    <div class="links">
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="controls">
+      <button id="themeToggle">Toggle Theme</button>
+      <button id="langEn">EN</button>
+      <button id="langAr">AR</button>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="parallax-layer layer1"></div>
+  <div class="parallax-layer layer2"></div>
+  <div class="parallax-layer layer3"></div>
+  <div class="hero-overlay"></div>
+  <h1 class="reveal">Ahmed Rashdan</h1>
+  <p class="subtitle reveal">Professional Data Scientist | Space & AI Enthusiast</p>
+  <a href="#projects" class="btn reveal">View Projects</a>
+</section>
+
+<!-- About -->
+<section class="section" id="about">
+  <div class="about-overlay"></div>
+  <div class="about-header reveal">
+    <h2>About Me</h2>
+  </div>
+  <div class="about-content reveal" id="aboutText">
+    <!-- JS will populate EN/AR content -->
+  </div>
+</section>
+
+<!-- Skills -->
+<section class="section" id="skills">
+  <h2 class="about-header reveal">Skills</h2>
+  <div class="skills-grid reveal">
+    <div class="skill-card">
+      <i class="fas fa-robot"></i>
+      <h3>AI</h3>
+      <div class="skill-bar"><div class="skill-level" style="width:90%"></div></div>
+    </div>
+    <div class="skill-card">
+      <i class="fas fa-network-wired"></i>
+      <h3>Automation</h3>
+      <div class="skill-bar"><div class="skill-level" style="width:85%"></div></div>
+    </div>
+    <div class="skill-card">
+      <i class="fas fa-code"></i>
+      <h3>Web Development</h3>
+      <div class="skill-bar"><div class="skill-level" style="width:80%"></div></div>
+    </div>
+    <div class="skill-card">
+      <i class="fas fa-space-shuttle"></i>
+      <h3>Space Tech</h3>
+      <div class="skill-bar"><div class="skill-level" style="width:95%"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section class="section" id="projects">
+  <h2 class="about-header reveal">Projects</h2>
+  <div class="project-grid reveal">
+    <div class="card">
+      <img src="path/to/image.jpg" alt="Project" style="width:100%; border-radius:10px;">
+      <h3>Project 1</h3>
+      <p>Brief description of Project 1.</p>
+      <div class="card-links">
+        <a href="#">View Live</a>
+        <a href="#">GitHub Repo</a>
       </div>
     </div>
-  </header>
-
-  <!-- About Me Section -->
-  <section id="about" class="about">
-    <div class="container">
-      <h2 id="about-title">About Me</h2>
-      <div class="about-content">
-        <img src="path/to/profile.jpg" alt="Ahmed Rashdan" class="profile-pic">
-        <div class="bio">
-          <p id="about-bio">
-            Hi, I’m Ahmed Rashdan, a professional Data Scientist from Egypt with a strong passion for programming, data analysis, and artificial intelligence. My journey in technology began at a young age through my love for video games and curiosity about how they work, which inspired me to build a strong foundation in data science and AI.
-          </p>
-          <h3 id="skills-title">Key Skills</h3>
-          <ul id="skills-list">
-            <li>Artificial Intelligence (AI)</li>
-            <li>Automation</li>
-            <li>Web Development</li>
-            <li>Robotics</li>
-            <li>Data Analysis & Visualization</li>
-          </ul>
-        </div>
+    <div class="card">
+      <img src="path/to/image.jpg" alt="Project" style="width:100%; border-radius:10px;">
+      <h3>Project 2</h3>
+      <p>Brief description of Project 2.</p>
+      <div class="card-links">
+        <a href="#">View Live</a>
+        <a href="#">GitHub Repo</a>
       </div>
     </div>
-  </section>
+    <!-- Add more projects as needed -->
+  </div>
+</section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects">
-    <div class="container">
-      <h2 id="projects-title">Projects</h2>
-      <div class="projects-grid">
-        <!-- Example Project -->
-        <div class="project-card">
-          <img src="path/to/project1.jpg" alt="Project Title">
-          <h3>Project Title</h3>
-          <p>Brief description of the project goes here. Highlights technologies and purpose.</p>
-          <div class="project-links">
-            <a href="#" target="_blank">View Live</a>
-            <a href="#" target="_blank">GitHub Repo</a>
-          </div>
-        </div>
-        <!-- Duplicate project cards as needed -->
-      </div>
+<!-- Contact -->
+<section class="section" id="contact">
+  <h2 class="about-header reveal">Contact</h2>
+  <div class="contact-wrapper reveal">
+    <form class="contact-form">
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <input type="text" placeholder="Subject">
+      <textarea placeholder="Message"></textarea>
+      <button type="submit" class="btn">Send</button>
+    </form>
+    <div class="contact-icons">
+      <a href="https://www.linkedin.com/in/ahmed-rashdan1" target="_blank">
+        <i class="fab fa-linkedin"></i>
+        <span class="tooltip">LinkedIn</span>
+      </a>
+      <a href="mailto:ahmeddino482@gmail.com" target="_blank">
+        <i class="fas fa-envelope"></i>
+        <span class="tooltip">Gmail</span>
+      </a>
+      <a href="tel:01283359534">
+        <i class="fas fa-phone"></i>
+        <span class="tooltip">Phone</span>
+      </a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Social Links Section -->
-  <section id="socials" class="socials">
-    <div class="container">
-      <h2 id="social-title">Connect with Me</h2>
-      <div class="social-links">
-        <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://twitter.com/yourusername" target="_blank"><i class="fab fa-twitter"></i></a>
-      </div>
-    </div>
-  </section>
+<!-- Footer -->
+<footer>
+  &copy; 2026 Ahmed Rashdan. All rights reserved.
+</footer>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p>© 2026 Ahmed Rashdan. All Rights Reserved.</p>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#socials">Connect</a>
-      </nav>
-    </div>
-  </footer>
+<script src="script.js"></script>
 </body>
 </html>
