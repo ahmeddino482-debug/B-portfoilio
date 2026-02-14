@@ -1,92 +1,53 @@
-// ========== Dark / Light Mode ==========
+// THEME TOGGLE
 const themeToggle = document.getElementById('theme-toggle');
 const currentTheme = localStorage.getItem('theme');
 
-if(currentTheme === 'dark') {
-    document.body.classList.add('dark');
+if (currentTheme === 'dark') {
+  document.body.classList.add('dark-mode');
 }
 
 themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    let theme = document.body.classList.contains('dark') ? 'dark' : 'light';
-    localStorage.setItem('theme', theme);
+  document.body.classList.toggle('dark-mode');
+  let theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+  localStorage.setItem('theme', theme);
 });
 
-// ========== Language Switcher (EN/AR) ==========
-const langSelect = document.getElementById('lang-select');
-const i18nTexts = {
-    en: {
-        home: "Home",
-        about: "About",
-        projects: "Projects",
-        contact: "Contact",
-        hero_heading: "Hi, I'm [Your Name]",
-        hero_tagline: "I build innovative solutions in AI, Automation, and Web Development.",
-        hero_cta: "View Projects",
-        about_heading: "About Me",
-        about_bio: "I am a passionate [Your Profession] with experience in AI, Automation, Web Development, and Robotics.",
-        skills_heading: "Skills",
-        projects_heading: "Projects",
-        view_live: "View Live",
-        view_code: "GitHub Repo",
-        contact_heading: "Contact Me",
-        send_btn: "Send"
-    },
-    ar: {
-        home: "الرئيسية",
-        about: "من أنا",
-        projects: "المشاريع",
-        contact: "اتصل بي",
-        hero_heading: "مرحبًا، أنا [اسمك]",
-        hero_tagline: "أبني حلول مبتكرة في الذكاء الاصطناعي، الأتمتة، وتطوير الويب.",
-        hero_cta: "عرض المشاريع",
-        about_heading: "من أنا",
-        about_bio: "أنا [مهنتك] شغوف ولدي خبرة في الذكاء الاصطناعي، الأتمتة، تطوير الويب، والروبوتات.",
-        skills_heading: "المهارات",
-        projects_heading: "المشاريع",
-        view_live: "عرض مباشر",
-        view_code: "مستودع GitHub",
-        contact_heading: "اتصل بي",
-        send_btn: "إرسال"
-    }
+// LANGUAGE TOGGLE
+const languageToggle = document.getElementById('language-toggle');
+
+const translations = {
+  en: {
+    heroHeading: "Ahmed Rashdan",
+    heroTagline: "Professional Data Scientist | AI & Web Development Enthusiast",
+    heroCTA: "View Projects",
+    aboutTitle: "About Me",
+    aboutBio: "Hi, I’m Ahmed Rashdan, a professional Data Scientist from Egypt with a strong passion for programming, data analysis, and artificial intelligence. My journey in technology began at a young age through my love for video games and curiosity about how they work, which inspired me to build a strong foundation in data science and AI.",
+    skillsTitle: "Key Skills",
+    projectsTitle: "Projects",
+    socialTitle: "Connect with Me"
+  },
+  ar: {
+    heroHeading: "أحمد رشدان",
+    heroTagline: "عالم بيانات محترف | شغوف بالذكاء الاصطناعي وتطوير الويب",
+    heroCTA: "عرض المشاريع",
+    aboutTitle: "من أنا",
+    aboutBio: "مرحبًا، أنا أحمد رشدان، عالم بيانات محترف من مصر ولدي شغف كبير بالبرمجة وتحليل البيانات والذكاء الاصطناعي. بدأت رحلتي في التكنولوجيا منذ صغري من خلال حبي لألعاب الفيديو وفضولي لمعرفة كيفية عملها، مما ألهمني لبناء أساس قوي في علم البيانات والذكاء الاصطناعي.",
+    skillsTitle: "المهارات الأساسية",
+    projectsTitle: "المشاريع",
+    socialTitle: "تواصل معي"
+  }
 };
 
-function updateLanguage(lang) {
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        el.textContent = i18nTexts[lang][key];
-    });
-}
+languageToggle.addEventListener('change', (e) => {
+  const lang = e.target.value;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
-// Initialize
-const savedLang = localStorage.getItem('lang') || 'en';
-langSelect.value = savedLang;
-updateLanguage(savedLang);
-
-langSelect.addEventListener('change', () => {
-    const lang = langSelect.value;
-    updateLanguage(lang);
-    localStorage.setItem('lang', lang);
-});
-
-// ========== Scroll Animations ==========
-const faders = document.querySelectorAll('#about, #projects, #contact, #hero .hero-content');
-
-const appearOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px"
-};
-
-const appearOnScroll = new IntersectionObserver(function(entries, observer){
-    entries.forEach(entry => {
-        if(!entry.isIntersecting) return;
-        entry.target.classList.add('appear');
-        observer.unobserve(entry.target);
-    });
-}, appearOptions);
-
-faders.forEach(fader => {
-    appearOnScroll.observe(fader);
+  document.getElementById('hero-heading').textContent = translations[lang].heroHeading;
+  document.getElementById('hero-tagline').textContent = translations[lang].heroTagline;
+  document.getElementById('hero-cta').textContent = translations[lang].heroCTA;
+  document.getElementById('about-title').textContent = translations[lang].aboutTitle;
+  document.getElementById('about-bio').textContent = translations[lang].aboutBio;
+  document.getElementById('skills-title').textContent = translations[lang].skillsTitle;
+  document.getElementById('projects-title').textContent = translations[lang].projectsTitle;
+  document.getElementById('social-title').textContent = translations[lang].socialTitle;
 });
