@@ -1,108 +1,92 @@
-// =========================
-// INITIAL LOAD SETTINGS
-// =========================
+// ========== Dark / Light Mode ==========
+const themeToggle = document.getElementById('theme-toggle');
+const currentTheme = localStorage.getItem('theme');
 
-// Load saved theme
-const savedTheme = localStorage.getItem("theme") || "light";
-document.body.classList.add(savedTheme);
-
-// Load saved language
-const savedLang = localStorage.getItem("language") || "en";
-document.documentElement.setAttribute("dir", savedLang === "ar" ? "rtl" : "ltr");
-
-
-// =========================
-// DARK / LIGHT MODE
-// =========================
-const themeToggle = document.getElementById("themeToggle");
-
-if (themeToggle) {
-  themeToggle.addEventListener("click", () => {
-    const isDark = document.body.classList.contains("dark");
-
-    document.body.classList.remove("dark", "light");
-    document.body.classList.add(isDark ? "light" : "dark");
-
-    localStorage.setItem("theme", isDark ? "light" : "dark");
-  });
+if(currentTheme === 'dark') {
+    document.body.classList.add('dark');
 }
 
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    let theme = document.body.classList.contains('dark') ? 'dark' : 'light';
+    localStorage.setItem('theme', theme);
+});
 
-// =========================
-// LANGUAGE TOGGLE
-// =========================
-const langEn = document.getElementById("langEn");
-const langAr = document.getElementById("langAr");
-const aboutText = document.getElementById("aboutText");
-
-const aboutContent = {
-  en: `
-    <p>Hello, I’m Ahmed Rashdan — a Data Scientist specializing in space technology, data analysis, and artificial intelligence.</p>
-    <p>My passion for technology started early through curiosity about how complex systems work, from video games to satellites orbiting Earth.</p>
-    <p>I focus on transforming complex data into clear, actionable insights, especially in satellite systems and orbital analytics.</p>
-    <p>I combine technical precision with business understanding to build impactful data-driven solutions.</p>
-  `,
-  ar: `
-    <p>مرحبًا، أنا أحمد رشدان — عالم بيانات متخصص في تقنيات الفضاء وتحليل البيانات والذكاء الاصطناعي.</p>
-    <p>بدأ شغفي بالتكنولوجيا من الفضول حول الأنظمة المعقدة، من ألعاب الفيديو إلى الأقمار الصناعية.</p>
-    <p>أركز على تحويل البيانات المعقدة إلى رؤى واضحة خاصة في أنظمة الأقمار الصناعية والتحليل المداري.</p>
-    <p>أجمع بين الدقة التقنية والفهم التجاري لبناء حلول قائمة على البيانات ذات تأثير حقيقي.</p>
-  `
+// ========== Language Switcher (EN/AR) ==========
+const langSelect = document.getElementById('lang-select');
+const i18nTexts = {
+    en: {
+        home: "Home",
+        about: "About",
+        projects: "Projects",
+        contact: "Contact",
+        hero_heading: "Hi, I'm [Your Name]",
+        hero_tagline: "I build innovative solutions in AI, Automation, and Web Development.",
+        hero_cta: "View Projects",
+        about_heading: "About Me",
+        about_bio: "I am a passionate [Your Profession] with experience in AI, Automation, Web Development, and Robotics.",
+        skills_heading: "Skills",
+        projects_heading: "Projects",
+        view_live: "View Live",
+        view_code: "GitHub Repo",
+        contact_heading: "Contact Me",
+        send_btn: "Send"
+    },
+    ar: {
+        home: "الرئيسية",
+        about: "من أنا",
+        projects: "المشاريع",
+        contact: "اتصل بي",
+        hero_heading: "مرحبًا، أنا [اسمك]",
+        hero_tagline: "أبني حلول مبتكرة في الذكاء الاصطناعي، الأتمتة، وتطوير الويب.",
+        hero_cta: "عرض المشاريع",
+        about_heading: "من أنا",
+        about_bio: "أنا [مهنتك] شغوف ولدي خبرة في الذكاء الاصطناعي، الأتمتة، تطوير الويب، والروبوتات.",
+        skills_heading: "المهارات",
+        projects_heading: "المشاريع",
+        view_live: "عرض مباشر",
+        view_code: "مستودع GitHub",
+        contact_heading: "اتصل بي",
+        send_btn: "إرسال"
+    }
 };
 
-function setLanguage(lang) {
-  if (!aboutText) return;
-
-  document.documentElement.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
-  aboutText.innerHTML = aboutContent[lang];
-
-  if (langEn && langAr) {
-    langEn.classList.toggle("active", lang === "en");
-    langAr.classList.toggle("active", lang === "ar");
-  }
-
-  localStorage.setItem("language", lang);
+function updateLanguage(lang) {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        el.textContent = i18nTexts[lang][key];
+    });
 }
 
-// Apply saved language
-setLanguage(savedLang);
+// Initialize
+const savedLang = localStorage.getItem('lang') || 'en';
+langSelect.value = savedLang;
+updateLanguage(savedLang);
 
-// Button events
-if (langEn) langEn.addEventListener("click", () => setLanguage("en"));
-if (langAr) langAr.addEventListener("click", () => setLanguage("ar"));
+langSelect.addEventListener('change', () => {
+    const lang = langSelect.value;
+    updateLanguage(lang);
+    localStorage.setItem('lang', lang);
+});
 
+// ========== Scroll Animations ==========
+const faders = document.querySelectorAll('#about, #projects, #contact, #hero .hero-content');
 
-// =========================
-// SCROLL REVEAL
-// =========================
-const reveals = document.querySelectorAll(".reveal");
+const appearOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+};
 
-function revealOnScroll() {
-  const windowH = window.innerHeight;
+const appearOnScroll = new IntersectionObserver(function(entries, observer){
+    entries.forEach(entry => {
+        if(!entry.isIntersecting) return;
+        entry.target.classList.add('appear');
+        observer.unobserve(entry.target);
+    });
+}, appearOptions);
 
-  reveals.forEach((el) => {
-    const top = el.getBoundingClientRect().top;
-    if (top < windowH - 50) {
-      el.classList.add("active");
-    }
-  });
-}
-
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll(); // Run once on load
-
-
-// =========================
-// HERO PARALLAX
-// =========================
-window.addEventListener("mousemove", (e) => {
-  const layers = document.querySelectorAll(".parallax-layer");
-
-  layers.forEach((layer, index) => {
-    const speed = (index + 1) * 0.02;
-    const x = (window.innerWidth - e.pageX * speed) / 100;
-    const y = (window.innerHeight - e.pageY * speed) / 100;
-
-    layer.style.transform = `translate(${x}px, ${y}px)`;
-  });
+faders.forEach(fader => {
+    appearOnScroll.observe(fader);
 });
