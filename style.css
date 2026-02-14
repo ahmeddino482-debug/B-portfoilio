@@ -34,7 +34,7 @@
   color: black;
 }
 
-/* Satellite animation */
+/* Animated satellite (SVG) */
 .satellite {
   position: absolute;
   width: 80px;
