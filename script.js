@@ -3,25 +3,23 @@
 // =========================
 const themeToggle = document.getElementById("themeToggle");
 
-// Toggle theme on button click
 themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   document.body.classList.toggle("light");
 
-  // Save preference
   localStorage.setItem(
     "theme",
     document.body.classList.contains("dark") ? "dark" : "light"
   );
 });
 
-// Load saved theme (default: dark)
-if (localStorage.getItem("theme") === "light") {
-  document.body.classList.remove("dark");
-  document.body.classList.add("light");
-} else {
+// Load saved theme
+if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark");
+} else {
+  document.body.classList.add("light");
 }
+
 
 // =========================
 // Language Toggle
@@ -66,13 +64,14 @@ langAr.addEventListener("click", () => setLanguage("ar"));
 // Default language
 setLanguage("en");
 
+
 // =========================
 // Scroll Reveal Animation
 // =========================
 const reveals = document.querySelectorAll(".reveal");
 
-window.addEventListener("scroll", () => {
-  reveals.forEach(el => {
+window.addEventListener("scroll", function () {
+  reveals.forEach((el) => {
     const top = el.getBoundingClientRect().top;
     const windowH = window.innerHeight;
 
@@ -82,15 +81,18 @@ window.addEventListener("scroll", () => {
   });
 });
 
+
 // =========================
 // Hero Parallax Effect
 // =========================
-window.addEventListener("mousemove", e => {
+window.addEventListener("mousemove", (e) => {
   const layers = document.querySelectorAll(".parallax-layer");
+
   layers.forEach((layer, index) => {
     const speed = (index + 1) * 0.02;
     const x = (window.innerWidth - e.pageX * speed) / 100;
     const y = (window.innerHeight - e.pageY * speed) / 100;
+
     layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
   });
 });
