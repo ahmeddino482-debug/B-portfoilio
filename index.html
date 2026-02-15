@@ -15,6 +15,7 @@
         <li><a href="#hero" data-i18n="home">Home</a></li>
         <li><a href="#about" data-i18n="about">About</a></li>
         <li><a href="#projects" data-i18n="projects">Projects</a></li>
+        <li><a href="#contact" data-i18n="contact">Contact</a></li>
       </ul>
       <div class="nav-actions">
         <button id="theme-toggle">🌙</button>
@@ -24,16 +25,16 @@
         </select>
         <div class="social-icons">
           <a href="https://www.linkedin.com/in/ahmed-rashdan1" target="_blank" title="LinkedIn">
-            <img src="images/linkedin.png" alt="LinkedIn" width="28" height="28">
+            <img src="icons/linkedin.svg" alt="LinkedIn">
           </a>
           <a href="https://github.com/ahmed-rashdan" target="_blank" title="GitHub">
-            <img src="images/github.png" alt="GitHub" width="28" height="28">
+            <img src="icons/github.svg" alt="GitHub">
           </a>
           <a href="mailto:ahmeddino482@gmail.com" title="Email">
-            <img src="images/email.png" alt="Email" width="28" height="28">
+            <img src="icons/email.svg" alt="Email">
           </a>
           <a href="tel:01283359534" title="Phone">
-            <img src="images/phone.png" alt="Phone" width="28" height="28">
+            <img src="icons/phone.svg" alt="Phone">
           </a>
         </div>
       </div>
@@ -54,7 +55,7 @@
     <h2 data-i18n="aboutTitle">About Me</h2>
     <div class="about-content">
       <div class="about-image">
-        <img src="images/galaxy.png" alt="About Background">
+        <img src="images/headshot.jpg" alt="Ahmed Rashdan">
       </div>
       <div class="about-text">
         <p data-i18n="aboutBio">I'm Ahmed Rashdan, a professional Data Scientist from Egypt specializing in data analysis and AI in space and satellite technology. My journey in tech began with my love for video games and curiosity about digital systems, leading me to build a strong foundation in data science and AI. I focus on integrating data science with space tech, analyzing orbital systems, and working with remote sensing data.</p>
@@ -75,7 +76,7 @@
     <h2 data-i18n="projectsTitle">Projects</h2>
     <div class="projects-grid">
       <div class="project-card">
-        <img src="images/red-nebula.png" alt="Project 1">
+        <img src="images/project1.jpg" alt="Project 1">
         <h3 data-i18n="project1Title">AI Data Analyzer</h3>
         <p data-i18n="project1Desc">A Python-based AI project for analyzing and visualizing large datasets efficiently.</p>
         <div class="project-links">
@@ -84,7 +85,7 @@
         </div>
       </div>
       <div class="project-card">
-        <img src="images/alien-landscape.png" alt="Project 2">
+        <img src="images/project2.jpg" alt="Project 2">
         <h3 data-i18n="project2Title">Space Tech Dashboard</h3>
         <p data-i18n="project2Desc">A web dashboard visualizing satellite and space data with interactive charts.</p>
         <div class="project-links">
@@ -93,6 +94,18 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2 data-i18n="contactTitle">Contact Me</h2>
+    <form class="contact-form">
+      <input type="text" name="name" data-i18n-placeholder="namePlaceholder" value="Ahmed Rashdan" required>
+      <input type="email" name="email" data-i18n-placeholder="emailPlaceholder" value="ahmeddino482@gmail.com" required>
+      <input type="text" name="subject" data-i18n-placeholder="subjectPlaceholder" required>
+      <textarea name="message" rows="5" data-i18n-placeholder="messagePlaceholder" required></textarea>
+      <button type="submit" data-i18n="sendMessage">Send</button>
+    </form>
   </section>
 
   <!-- Footer -->
@@ -106,6 +119,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
-
-just take that and add the logo for each platform next to the links above in the top bar
