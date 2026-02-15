@@ -7,101 +7,65 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <!-- Header & Navigation -->
   <header>
     <nav class="navbar">
       <div class="logo">Ahmed Rashdan</div>
+
       <ul class="nav-links">
         <li><a href="#hero" data-i18n="home">Home</a></li>
         <li><a href="#about" data-i18n="about">About</a></li>
         <li><a href="#projects" data-i18n="projects">Projects</a></li>
       </ul>
+
       <div class="nav-actions">
         <button id="theme-toggle">🌙</button>
+
         <select id="lang-toggle">
           <option value="en">EN</option>
           <option value="ar">AR</option>
         </select>
+
+        <!-- Social Icons -->
         <div class="social-icons">
+
+          <!-- LinkedIn -->
           <a href="https://www.linkedin.com/in/ahmed-rashdan1" target="_blank" title="LinkedIn">
-            <img src="images/linkedin.png" alt="LinkedIn" width="28" height="28">
+            <svg viewBox="0 0 24 24">
+              <path fill="currentColor"
+              d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M8.34 17V10.5H6V17H8.34M7.17 9.5A1.36 1.36 0 1 0 7.17 6.77A1.36 1.36 0 0 0 7.17 9.5M18 17V13.14C18 11.19 17 10.24 15.62 10.24C14.53 10.24 14 10.84 13.72 11.24V10.5H11.38V17H13.72V13.36C13.72 12.39 14.08 11.74 14.95 11.74C15.81 11.74 16 12.44 16 13.4V17H18Z"/>
+            </svg>
           </a>
+
+          <!-- GitHub -->
           <a href="https://github.com/ahmed-rashdan" target="_blank" title="GitHub">
-            <img src="images/github.png" alt="GitHub" width="28" height="28">
+            <svg viewBox="0 0 24 24">
+              <path fill="currentColor"
+              d="M12 .5C5.65.5.5 5.65.5 12C.5 17.08 3.87 21.33 8.44 22.84C9.05 22.95 9.27 22.58 9.27 22.27V20.3C5.91 21.05 5.14 18.79 5.14 18.79C4.55 17.34 3.69 16.96 3.69 16.96C2.54 16.18 3.78 16.2 3.78 16.2C5.05 16.29 5.72 17.5 5.72 17.5C6.84 19.41 8.67 18.86 9.39 18.54C9.5 17.72 9.82 17.17 10.18 16.87C7.45 16.55 4.58 15.47 4.58 10.64C4.58 9.27 5.06 8.16 5.87 7.29C5.75 6.98 5.34 5.66 6 3.89C6 3.89 7.02 3.57 9.27 5.09C10.25 4.82 11.3 4.68 12.35 4.68C13.4 4.68 14.45 4.82 15.43 5.09C17.68 3.57 18.7 3.89 18.7 3.89C19.36 5.66 18.95 6.98 18.83 7.29C19.64 8.16 20.12 9.27 20.12 10.64C20.12 15.48 17.25 16.54 14.51 16.86C14.97 17.25 15.39 18.03 15.39 19.22V22.27C15.39 22.58 15.61 22.95 16.22 22.84C20.79 21.33 24 17.08 24 12C24 5.65 18.85 .5 12 .5Z"/>
+            </svg>
           </a>
+
+          <!-- Email -->
           <a href="mailto:ahmeddino482@gmail.com" title="Email">
-            <img src="images/email.png" alt="Email" width="28" height="28">
+            <svg viewBox="0 0 24 24">
+              <path fill="currentColor"
+              d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4M20 8L12 13L4 8V6L12 11L20 6V8Z"/>
+            </svg>
           </a>
+
+          <!-- Phone -->
           <a href="tel:01283359534" title="Phone">
-            <img src="images/phone.png" alt="Phone" width="28" height="28">
+            <svg viewBox="0 0 24 24">
+              <path fill="currentColor"
+              d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.68 14.91 16.08 14.82 16.43 14.93C17.55 15.3 18.76 15.5 20 15.5C20.55 15.5 21 15.95 21 16.5V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.24 8.7 6.45 9.07 7.57C9.18 7.92 9.09 8.32 8.82 8.59L6.62 10.79Z"/>
+            </svg>
           </a>
+
         </div>
       </div>
     </nav>
   </header>
-
-  <!-- Hero Section -->
-  <section id="hero" class="hero">
-    <div class="hero-content">
-      <h1 data-i18n="heroTitle">Hi, I'm Ahmed Rashdan</h1>
-      <p data-i18n="heroSubtitle">Data Scientist & Space Technology Enthusiast</p>
-      <a href="#projects" class="btn" data-i18n="viewProjects">View Projects</a>
-    </div>
-  </section>
-
-  <!-- About Me Section -->
-  <section id="about" class="about">
-    <h2 data-i18n="aboutTitle">About Me</h2>
-    <div class="about-content">
-      <div class="about-image">
-        <img src="images/galaxy.png" alt="About Background">
-      </div>
-      <div class="about-text">
-        <p data-i18n="aboutBio">I'm Ahmed Rashdan, a professional Data Scientist from Egypt specializing in data analysis and AI in space and satellite technology. My journey in tech began with my love for video games and curiosity about digital systems, leading me to build a strong foundation in data science and AI. I focus on integrating data science with space tech, analyzing orbital systems, and working with remote sensing data.</p>
-        <h3 data-i18n="skillsTitle">Skills</h3>
-        <ul class="skills-list">
-          <li>AI</li>
-          <li>Automation</li>
-          <li>Web Development</li>
-          <li>Robotics</li>
-          <li>Data Analysis</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="projects">
-    <h2 data-i18n="projectsTitle">Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <img src="images/red-nebula.png" alt="Project 1">
-        <h3 data-i18n="project1Title">AI Data Analyzer</h3>
-        <p data-i18n="project1Desc">A Python-based AI project for analyzing and visualizing large datasets efficiently.</p>
-        <div class="project-links">
-          <a href="#" target="_blank" data-i18n="viewLive">View Live</a>
-          <a href="https://github.com/ahmed-rashdan" target="_blank" data-i18n="githubRepo">GitHub Repo</a>
-        </div>
-      </div>
-      <div class="project-card">
-        <img src="images/alien-landscape.png" alt="Project 2">
-        <h3 data-i18n="project2Title">Space Tech Dashboard</h3>
-        <p data-i18n="project2Desc">A web dashboard visualizing satellite and space data with interactive charts.</p>
-        <div class="project-links">
-          <a href="#" target="_blank" data-i18n="viewLive">View Live</a>
-          <a href="https://github.com/ahmed-rashdan" target="_blank" data-i18n="githubRepo">GitHub Repo</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2026 Ahmed Rashdan. All Rights Reserved.</p>
-    <div class="footer-links">
-      <a href="#hero" data-i18n="backToTop">Back to Top</a>
-    </div>
-  </footer>
 
   <script src="script.js"></script>
 </body>
